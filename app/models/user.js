@@ -8,8 +8,10 @@ userSchema.pre('save', function(next) {
   return cipher(this['password'], null, null).bind(this)
     .then(function(hash) {
       this['password'] = hash;
+    })
+    .then(function() {
+      next();
     });
-  next();
 });
 
 userSchema.methods.comparePassword = function(attemptedPassword, callback) {
