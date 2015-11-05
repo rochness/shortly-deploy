@@ -6,6 +6,10 @@
   "repository": "",
   "license": "Proprietary",
   "private": true,
+  "scripts": {
+    "serve": "node-inspector --web-port=4568 & nodemon --debug server.js",
+    "test": "./node_modules/.bin/mocha --bail --reporter nyan ./test/ServerSpec.js; pkill -n node;"
+  },
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
     "bluebird": "1.0.8",
@@ -27,12 +31,9 @@
     "knex": "~0.5.7",
     "mocha": "^1.17.1",
     "mongodb": "^2.0.47",
-    "mongoose": "^3.8.36",
+    "mongoose": "3.8.36",
     "request": "^2.34.0",
     "sqlite3": "~3.0.10"
-  },
-  "scripts": {
-    "test": "node server.js & ./node_modules/.bin/mocha test/ServerSpec.js; pkill -n node;"
   },
   "devDependencies": {
     "supertest": "^0.10.0"

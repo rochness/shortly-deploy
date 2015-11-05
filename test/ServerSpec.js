@@ -3,7 +3,7 @@ var express = require('express');
 var expect = require('chai').expect;
 var app = require('../server-config.js');
 
-var db = require('../app/config');
+var db = require('../app/config').db;
 var User = require('../app/models/user');
 var Link = require('../app/models/link');
 
@@ -11,9 +11,7 @@ var Link = require('../app/models/link');
 // NOTE: these tests are designed for mongo!
 /////////////////////////////////////////////////////
 
-var User = require('../app/models/user');
-var Link = require('../app/models/link');
-('', function() {
+describe('', function() {
 
   beforeEach(function(done) {
     // Log out currently signed in user
@@ -30,7 +28,7 @@ var Link = require('../app/models/link');
       });
   });
 
-  describe('Link creation: ', function() {
+  xdescribe('Link creation: ', function() {
 
     it('Only shortens valid urls, returning a 404 - Not found for invalid urls', function(done) {
       request(app)
@@ -247,3 +245,8 @@ var Link = require('../app/models/link');
   }); // Account Login
 
 });
+
+
+
+
+
